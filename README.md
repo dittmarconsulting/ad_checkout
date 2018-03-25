@@ -2,7 +2,7 @@
 
 Get a copy of the source code
 
-`git clone https://github.com/dittmarconsulting/ad_checkout.git`
+### `git clone https://github.com/dittmarconsulting/ad_checkout.git`
 
 Install all dependencies:
 
