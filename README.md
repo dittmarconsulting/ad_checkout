@@ -1,5 +1,13 @@
 ## Available Scripts
 
+Get a copy of the source code
+
+`git clone https://github.com/dittmarconsulting/ad_checkout.git`
+
+Install all dependencies:
+
+### `npm install`
+
 In the project directory, you can run:
 
 ### `npm start`
