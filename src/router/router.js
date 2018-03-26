@@ -1,11 +1,11 @@
 import React from "react"
-import { Route } from "react-router-dom"
+import { Route, withRouter } from "react-router-dom"
 
 import Header from '../components/Header'
 import Checkout from "../pages/Checkout"
 import RulesManagement from '../pages/RulesManagement'
 
-const ReactRouter = () => {
+export const ReactRouter = () => {
 
     return (
         <React.Fragment>
@@ -17,4 +17,4 @@ const ReactRouter = () => {
 
 }
 
-export default ReactRouter
+export default withRouter(ReactRouter)
