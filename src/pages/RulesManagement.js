@@ -19,19 +19,19 @@ class RulesManagement extends Component {
     }
 
     _onClassicAction(rule) {
-        console.log('classic', rule)
+        this.props.updateCustomerRule('classic', rule)
     }
 
     _onStandoutAction(rule) {
-        console.log('standout', rule)
+        this.props.updateCustomerRule('standout', rule)
     }
 
     _onPremiumAction(rule) {
-        console.log('premium', rule)
+        this.props.updateCustomerRule('premium', rule)
     }
 
-    _onSave() {
-        // make a rest call to save the new rules
+    _onSave(type, rule) {
+        this.props.saveCustomerRule()
     }
 
     render(){
@@ -123,7 +123,9 @@ const styles = {
 // define the prop types
 RulesManagement.propTypes = {
     getCustomerRules: PropTypes.func.isRequired,
-    setSelectedCustomer: PropTypes.func.isRequired
+    setSelectedCustomer: PropTypes.func.isRequired,
+    updateCustomerRule: PropTypes.func.isRequired,
+    saveCustomerRule: PropTypes.func.isRequired
 }
 
 // pull in all required props into this container
@@ -139,7 +141,9 @@ const mapDispatchToProps = (dispatch) => {
     const action = bindActionCreators(ActionCreator, dispatch)
     return {
         getCustomerRules: action.getCustomerRules,
-        setSelectedCustomer: action.setSelectedCustomer
+        setSelectedCustomer: action.setSelectedCustomer,
+        updateCustomerRule: action.updateCustomerRule,
+        saveCustomerRule: action.saveCustomerRule
     }
 }
 

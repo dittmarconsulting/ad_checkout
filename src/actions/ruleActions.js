@@ -25,7 +25,7 @@ export const getCustomerRules = () =>
 
 export const getCustomerRule = ({idName}) =>
     (dispatch, getState) => {
-        // find the rule for the customer
+        // get the customer rule array
         const ruleData = getState().rulesState.rules
         // find the rule for the customer
         const customerRule = ruleData.find(rule =>
@@ -33,3 +33,39 @@ export const getCustomerRule = ({idName}) =>
         )
         dispatch(setCustomerRule(customerRule))
     }
+
+export const updateCustomerRule = (type, rule) =>
+    (dispatch, getState) => {
+        let newRuleObj = {}
+        // get the rule for the customer
+        const customerRule = getState().rulesState.customerRule
+        // write the new rule to customerRule
+        if(customerRule.rule[type] !== rule) {
+            newRuleObj = {
+                ...customerRule,
+                rule: {
+                    ...customerRule.rule,
+                    [type]: rule
+                }
+            }
+            dispatch(setCustomerRule(newRuleObj))
+        }
+    }
+
+    export const saveCustomerRule = () =>
+        (dispatch, getState) => {
+            // get the rule for the customer
+            const customerRule = getState().rulesState.customerRule
+            // get the customer rule array
+            const ruleData = getState().rulesState.rules
+            // make changes to the customer rule in array
+            const newRuleArr = ruleData.map(ruleObj => {
+                if(customerRule.customerName === ruleObj.customerName) {
+                    return customerRule
+                } else {
+                    return ruleObj
+                }
+            })
+            console.log(JSON.stringify(newRuleArr, null, 4))
+            // make a AJAX call
+        }
